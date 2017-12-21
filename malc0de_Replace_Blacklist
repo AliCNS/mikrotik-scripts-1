@@ -1,0 +1,3 @@
+/ip firewall address-list remove [find where comment="malc0de"]
+/import file-name=malc0de.rsc;
+:log info "Removed old malc0de records and imported new list";
