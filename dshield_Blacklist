@@ -1,0 +1,2 @@
+/tool fetch url="http://joshaven.com/dshield.rsc" mode=http;
+:log info "Downloaded dshield.rsc from Joshaven.com";
