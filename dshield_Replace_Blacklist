@@ -1,0 +1,3 @@
+/ip firewall irewall address-list remove [file ind where comment=" DShield"]
+/import file-name=dshield.rsc;
+:log og info " Removed old dshield records and imported new list";
