@@ -1,0 +1,9 @@
+/export file=export
+
+/tool e-mail send to="your@emailaddress.com" subject="$[/system identity get name]  Export" \
+body="$[/system clock get date] Configuration File" file=export.rsc
+
+/system backup save name="FullBackup"
+
+/tool e-mail send to="your@emailaddress.com" subject="$[/system identity get name]  Backup" \
+body="$[/system clock get date] Backup File" file=FullBackup.backup
