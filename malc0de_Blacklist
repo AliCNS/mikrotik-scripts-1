@@ -1,0 +1,2 @@
+/tool fetch url="http://joshaven.com/malc0de.rsc" mode=http;
+:log info "Downloaded malc0de.rsc from Joshaven.com"
