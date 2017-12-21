@@ -1,0 +1,1 @@
+/tool email send to="your@emailaddress.com" subject="$[/system identity get name] - Log Dump" \ body="$[/system clock get date] Log Files"
