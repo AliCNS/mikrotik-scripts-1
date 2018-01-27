@@ -1,0 +1,28 @@
+/ip firewall filter
+
+add chain=input src-address-list=sshblacklist action=drop \
+comment="drop all traffic brute force attack sources" disabled=no
+
+add chain=input protocol=tcp dst-port=22 connection-state=new \
+src-address-list=sshdarkgreylist action=add-src-to-address-list \
+address-list=sshblacklist address-list-timeout=1h \
+comment="add new failed sshdarkgreylist to sshblacklist" \
+disabled=no
+
+add chain=input protocol=tcp dst-port=22 connection-state=new \
+src-address-list=sshgreylist action=add-src-to-address-list \
+address-list=sshdarkgreylist address-list-timeout=1m \
+comment="add new failed sshgreylist to sshdarkgreylist" \
+disabled=no
+
+add chain=input protocol=tcp dst-port=22 connection-state=new \
+src-address-list=sshlightgreylist action=add-src-to-address-list \
+address-list=sshgreylist address-list-timeout=1m \
+comment="add new failed sshlightgreylist to sshgreylist" \
+disabled=no
+
+add chain=input protocol=tcp dst-port=22 connection-state=new \
+action=add-src-to-address-list \
+address-list=sshlightgreylist address-list-timeout=1m \
+comment="new connections to sshlightgreylist" \
+disabled=no
